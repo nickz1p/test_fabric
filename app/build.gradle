@@ -1,6 +1,8 @@
 buildscript {
     repositories {
+        jcenter()
         maven { url 'https://maven.fabric.io/public' }
+
     }
 
     dependencies {
@@ -16,9 +18,9 @@ repositories {
 
 
 android {
+
     compileSdkVersion 22
     buildToolsVersion "23.0.0 rc2"
-
     defaultConfig {
         applicationId "com.example.npopadiuk.myapplication"
         minSdkVersion 15
@@ -30,7 +32,17 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            ext.betaDistributionGroupAliases="test-group"
+            ext.betaDistributionReleaseNotes="Release Notes for this build."
+
         }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            ext.betaDistributionGroupAliases="test-group"
+            ext.betaDistributionReleaseNotes="Release Notes for this build."
+        }
+
     }
 }
 
